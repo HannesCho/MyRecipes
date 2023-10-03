@@ -104,7 +104,7 @@ router.get("/", (req, res, next) => {
       const data = await getDataFromDB(el);
       wholeRecipes = [...data];
       for (let recipe of wholeRecipes) {
-        console.log(recipe);
+        // console.log(recipe);
         const {
           strMeal,
           strCategory,
