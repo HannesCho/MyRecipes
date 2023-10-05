@@ -21,7 +21,6 @@ router.post("/login", (req, res, next) => {
 });
 
 router.post("/signup", (req, res, next) => {
-  console.log(req.body);
   const { username, password, role } = req.body;
   if (password.length < 4) {
     res.status(400).json({ message: "Your password needs to be 4 chars min" });

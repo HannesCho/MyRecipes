@@ -8,7 +8,7 @@ router.get("/:id", (req, res, next) => {
       const ids = user.favorite;
       Recipe.find({ _id: { $in: ids } })
         .then((favorites) => {
-          console.log(favorites);
+          // console.log(favorites);
           res.status(200).json(favorites);
         })
         .catch((err) => next(err));
@@ -19,14 +19,14 @@ router.get("/:id", (req, res, next) => {
 router.get("/creator/:id", (req, res, next) => {
   Recipe.find({ creatorId: req.params.id })
     .then((recipe) => {
-      console.log(recipe);
+      // console.log(recipe);
       res.status(200).json(recipe);
     })
     .catch((err) => next(err));
 });
 
 router.put("/:id", (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   User.findByIdAndUpdate(
     req.params.id,
     {
@@ -42,7 +42,7 @@ router.put("/:id", (req, res, next) => {
 });
 
 router.delete("/:id", (req, res, next) => {
-  console.log(req.body.favorite);
+  // console.log(req.body.favorite);
   User.findByIdAndUpdate(
     req.params.id,
     {

@@ -8,7 +8,6 @@ const fileUploader = require("../config/cloudinary.config");
 router.get("/", (req, res, next) => {
   Recipe.find()
     .then((recipes) => {
-      console.log(recipes);
       res.status(200).json(recipes);
     })
     .catch((err) => next(err));
@@ -30,7 +29,6 @@ router.post("/upload", fileUploader.single("imageUrl"), (req, res, next) => {
 
 // create a recipe
 router.post("/", (req, res, next) => {
-  console.log(req.body);
   const {
     strMeal,
     strCategory,
