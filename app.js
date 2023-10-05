@@ -78,16 +78,16 @@ require("./config")(app);
 // 👇 Start handling routes here
 // Contrary to the views version, all routes are controlled from the routes/index.js
 const mealdb = require("./routes/mealdb");
-app.use("/myresapi/mealdb", mealdb);
+app.use("/api/mealdb", mealdb);
 
 const user = require("./routes/user");
-app.use("/myresapi/user", user);
+app.use("/api/user", user);
 
 const recipes = require("./routes/recipes");
-app.use("/myresapi/recipes", recipes);
+app.use("/api/recipes", recipes);
 
 const auth = require("./routes/auth");
-app.use("/myresapi/auth", auth);
+app.use("/api/auth", auth);
 
 const path = require("path");
 app.use(express.static(path.join(__dirname, "/client/build")));

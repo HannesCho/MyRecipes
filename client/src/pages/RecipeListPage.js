@@ -4,6 +4,7 @@ import RecipeCard from "../components/RecipeCard";
 
 export default function RecipeListPage(props) {
   // we don't need this bc we are using the proxy in package.json
+  const API_URL=process.env.API_URL
 
   const [user, setUser] = useState(props.user);
   const [recipes, setRecipes] = useState([]);
@@ -18,7 +19,7 @@ export default function RecipeListPage(props) {
 
   const getUser = () => {
     axios
-      .get("/api/auth/loggedin")
+      .get(`${API_URL}/auth/loggedin`)
       .then((res) => {
         setUser(res.data);
         setFavorite(res.data.favorite);
@@ -36,7 +37,7 @@ export default function RecipeListPage(props) {
   const getAllRecipes = () => {
     // get request to the server
     axios
-      .get(`/api/recipes`)
+      .get(`api/recipes`)
       .then((res) => {
         console.log(res);
         setRecipes(res.data);
@@ -61,7 +62,7 @@ export default function RecipeListPage(props) {
     if (user) {
       if (!favorite.includes(id)) {
         axios
-          .put(`/api/user/${userId}`, {
+          .put(`${API_URL}/user/${userId}`, {
             favorite: [...favorite, id],
           })
           .then((res) => {
@@ -82,7 +83,7 @@ export default function RecipeListPage(props) {
         });
         console.log(filtedIds);
         axios
-          .delete(`/api/user/${userId}`, {
+          .delete(`${API_URL}/user/${userId}`, {
             data: { favorite: [...filtedIds] },
           })
           .then((res) => {

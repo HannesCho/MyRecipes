@@ -1,8 +1,8 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "proxy" : "http://localhost:5005",
   "private": true,
-  "proxy": "http://localhost:5005",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -15,7 +15,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "PORT=3002 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
