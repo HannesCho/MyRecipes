@@ -5,7 +5,7 @@ const Recipe = require("../models/Recipe");
 const fileUploader = require("../config/cloudinary.config");
 
 // get all recipes
-router.get("/", (req, res, next) => {
+router.get("/myresapi", (req, res, next) => {
   Recipe.find()
     .then((recipes) => {
       res.status(200).json(recipes);
